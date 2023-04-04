@@ -29,7 +29,7 @@ use admin_setting_confightmleditor;
 use admin_setting_configstoredfile;
 use admin_setting_configtext;
 use admin_settingpage;
-use theme_imtpn\setup;
+use theme_imt\setup;
 
 /**
  * Theme settings. In one place.

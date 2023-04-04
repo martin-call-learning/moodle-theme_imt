@@ -25,5 +25,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 if ($ADMIN->fulltree) {
-    $settings = \theme_imt\local\settings::create_settings('imtpn'); // Create relevant settings.
+    $settings = \theme_imt\local\settings::create_settings('imt'); // Create relevant settings.
 }
