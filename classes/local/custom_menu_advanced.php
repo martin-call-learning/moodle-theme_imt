@@ -15,11 +15,25 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Language file
+ * Custom menu with additional icons
  *
  * @package   theme_imt
  * @copyright 2023 - CALL Learning - Martin CORNU-MANSUY <martin@call-learning.fr>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Theme IMT';
+namespace theme_imt\local;
+
+use custom_menu;
+use theme_imt\local\custom_menu_advanced_trait;
+
+/**
+ * Custom menu class with icons
+ *
+ * @package   theme_imt
+ * @copyright 2023 - CALL Learning - Martin CORNU-MANSUY <martin@call-learning.fr>
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class custom_menu_advanced extends custom_menu {
+    use custom_menu_advanced_trait;
+}

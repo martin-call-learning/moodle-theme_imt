@@ -438,21 +438,6 @@ class setup {
     }
 
     /**
-     * Setup customscript variable
-     *
-     * @return void
-     */
-    public static function setup_customscripts() {
-        global $CFG;
-        $isactive = get_config('theme_imt', 'customscripts');
-        if ($isactive) {
-            set_config('customscripts', $CFG->dirroot . '/theme/imt/customscripts/');
-        } else {
-            unset_config('customscripts');
-        }
-    }
-
-    /**
      * Default value for theme match.
      */
     const DEFAULT_THEME_MATCH = [
