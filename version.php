@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2023040503; /* This is the version number to increment when changes needing an update are made */
+$plugin->version   = 2023041201; /* This is the version number to increment when changes needing an update are made */
 $plugin->requires  = 2019111800;
 $plugin->release   = '0.1.0';
 $plugin->maturity  = MATURITY_ALPHA;
@@ -32,14 +32,9 @@ $plugin->component = 'theme_imt';
 $plugin->dependencies = [
     'theme_boost' => ANY_VERSION,
     'theme_clboost' => ANY_VERSION,
-    'block_group_members' => ANY_VERSION,
-    'block_forum_groups' => ANY_VERSION,
     'block_thumblinks_action' => ANY_VERSION,
     'block_enhanced_myoverview' => ANY_VERSION,
-    'block_sharing_cart' => ANY_VERSION,
     'block_rss_thumbnails' => ANY_VERSION,
-    'block_forum_feed' => ANY_VERSION,
     'block_mcms' => ANY_VERSION,
     'block_featured_courses' => ANY_VERSION,
-    'local_syllabus' => ANY_VERSION,
 ];

@@ -28,6 +28,7 @@ use coding_exception;
 use context_course;
 use context_module;
 use context_system;
+use core_user;
 use dml_exception;
 use moodle_page;
 use moodle_url;
@@ -47,43 +48,6 @@ class setup {
     /**
      * Dashboard block definition
      */
-    const MUR_PEDAGO_BLOCK_DEFINITION = array(
-        array(
-            'blockname' => 'forum_groups',
-            'showinsubcontexts' => '1',
-            'defaultregion' => 'side-pre',
-            'defaultweight' => '0',
-            'configdata' =>
-                [
-                    "title" => 'populargroups|theme_imt',
-                ],
-            'capabilities' => array(),
-        )
-    );
-
-    /**
-     * Dashboard block definition
-     */
-    const MUR_PEDAGO_GROUP_BLOCK_DEFINITION = array(
-        array(
-            'blockname' => 'group_members',
-            'showinsubcontexts' => '1',
-            'defaultregion' => 'side-pre',
-            'defaultweight' => '0',
-            'configdata' =>
-                [
-                    "title" => '',
-                ],
-            'capabilities' => array(),
-        )
-    );
-
-    // phpcs:disable
-    // @codingStandardsIgnoreStart
-
-    /**
-     * Dashboard block definition
-     */
     const DASHBOARD_BLOCK_DEFINITION = array(
         array(
             'blockname' => 'html',
@@ -97,7 +61,7 @@ class setup {
                     "classes" => "db-welcome",
                     "backgroundcolor" => "",
                     "text" => '<p>Que voulez-vous faire aujourd’hui ?</p>
-<div class="d-flex flex-row flex-wrap flex-md-nowrap justify-content-center align-items-stretch my-4">
+<div class="bienvenue d-flex flex-wrap flex-md-nowrap justify-content-between align-items-center my-4">
     <a>
 	    <img src="/theme/imt/pix/icons/book.svg" alt=""/>
         <span>Créer un nouveau cours</span>
@@ -105,10 +69,6 @@ class setup {
     <a>
         <img src="/theme/imt/pix/icons/hand-leaf.svg" alt=""/>
         <span>Partager une ressource</span>
-    </a>
-    <a href="/theme/imt/pages/themescat.php">
-        <img src="/theme/imt/pix/icons/globe-glass.svg" alt=""/>
-        <span>Explorer le catalogue</span>
     </a>
     <a>
         <img src="/theme/imt/pix/icons/bubbles.svg" alt=""/>
@@ -148,28 +108,7 @@ class setup {
             'defaultweight' => '4',
             'configdata' => array(),
             'capabilities' => array()
-        ),
-        array(
-            'blockname' => 'html',
-            'showinsubcontexts' => '0',
-            'defaultregion' => 'content',
-            'defaultweight' => '5',
-            'configdata' =>
-                [
-                    "title" => "",
-                    "format" => "1",
-                    "classes" => "db-inspiration",
-                    "backgroundcolor" => "",
-                    "text" => '<div class="text-center"><p>
-                                <i class="fa fa-star-o"></i> 
-                                   Besoin d’inspiration ? Envie d’apprendre ? 
-                                <i class="fa fa-star-o"></i>
-                            </p>
-    <p>Découvrez plus de cours en explorant le catalogue de cours</p>
-    <a href="/local/resourcelibrary" class="btn btn-primary">Explorer le catalogue de cours</a>
-</div>'],
-            'capabilities' => array()
-        ),
+        )
     );
 
     // @codingStandardsIgnoreStart
@@ -321,22 +260,8 @@ class setup {
         $oldpage = $PAGE;
         $PAGE = $page;
         $dashboarddef = self::DASHBOARD_BLOCK_DEFINITION;
-        $murpedagocm = mur_pedagogique::get_cm();
-        if ($murpedagocm) {
-            $forumid = $murpedagocm->instance;
-            $dashboarddef = array_map(function($b) use ($forumid) {
-                if ($b['blockname'] == 'forum_feed') {
-                    $b['configdata']['forumid'] = $forumid;
-                }
-                return $b;
-            }, self::DASHBOARD_BLOCK_DEFINITION);
-        }
         setup_utils::setup_page_blocks($page, $dashboarddef);
         my_reset_page_for_all_users();
-        // Note here: this will only define capabilities for the default page. If we
-        // want the dashboard to work as expected we also need to set forcedefaultmymoodle to true.
-        // Reset the mur pedagogique block.
-        self::setup_murpedago_blocks();
         // Setup Home page.
         $page = new moodle_page();
         $page->set_pagetype('site-index');
@@ -403,40 +328,6 @@ class setup {
         }
     }
 
-    // @codingStandardsIgnoreEnd
-    // phpcs:enable
-
-    /**
-     * Setup block for mur pedagogique
-     *
-     * @throws coding_exception
-     * @throws dml_exception
-     */
-    public static function setup_murpedago_blocks() {
-        $cm = mur_pedagogique::get_cm();
-        if ($cm) {
-            $pageforum = new moodle_page();
-            $pageforum->set_cm($cm);
-            $pageforum->set_pagelayout('incourse');
-            $pageforum->set_pagetype('mod-forum-view');
-            setup_utils::setup_page_blocks($pageforum, self::MUR_PEDAGO_BLOCK_DEFINITION, $regionname = 'side-pre');
-            $pagemurpedago = new moodle_page();
-            $pageforum->set_cm($cm);
-            $pageforum->set_pagelayout('incourse');
-            $pagemurpedago->set_pagetype('theme-imt-pages-murpedagogique-index');
-            setup_utils::setup_page_blocks($pagemurpedago, self::MUR_PEDAGO_BLOCK_DEFINITION, $regionname = 'side-pre');
-            $pagegroupoverview = new moodle_page();
-            $pagegroupoverview->set_pagelayout('standard');
-            $pagegroupoverview->set_pagetype('group-overview');
-            setup_utils::setup_page_blocks($pagegroupoverview, self::MUR_PEDAGO_BLOCK_DEFINITION, $regionname = 'side-pre');
-            $pagegroups = new moodle_page();
-            $pagegroups->set_pagelayout('incourse');
-            $pagegroups->set_pagetype('group-page');
-            $pagegroups->set_context(context_module::instance($cm->id));
-            setup_utils::setup_page_blocks($pagegroups, self::MUR_PEDAGO_GROUP_BLOCK_DEFINITION, $regionname = 'side-pre');
-        }
-    }
-
     /**
      * Default value for theme match.
      */
@@ -455,7 +346,7 @@ class setup {
      */
     public static function setup_user_theme($userid) {
         global $DB, $PAGE, $USER;
-        $user = \core_user::get_user($userid);
+        $user = core_user::get_user($userid);
         if ($user) {
             $themelist = get_list_of_themes();
             $emailvstheme = get_config('theme_imt', 'emailvstheme');
