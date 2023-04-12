@@ -21,5 +21,5 @@
  * @copyright 2023 - CALL Learning - Martin CORNU-MANSUY <martin@call-learning.fr>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
+$string['choosereadme'] = 'A theme based on Boost (Bootstrap 4.5) specifically designed for IMT';
 $string['pluginname'] = 'Theme IMT';
