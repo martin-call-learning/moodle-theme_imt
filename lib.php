@@ -86,7 +86,7 @@ function theme_imt_pluginfile($course, $cm, $context, $filearea, $args, $forcedo
             send_file_not_found();
         }
     }
-    return theme_clboost\local\utils::generic_pluginfile('imtpn', $course, $cm, $context, $filearea, $args, $forcedownload,
+    return theme_clboost\local\utils::generic_pluginfile('imt', $course, $cm, $context, $filearea, $args, $forcedownload,
         $options);
 }
 

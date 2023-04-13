@@ -36,16 +36,16 @@ function xmldb_theme_imt_upgrade($oldversion) {
     global $DB;
     $dbman = $DB->get_manager();
     if ($oldversion < 2021011900) {
-        theme_imtpn\setup::install_update();
-        upgrade_plugin_savepoint(true, 2021011900, 'theme', 'imtpn');
+        theme_imt\setup::install_update();
+        upgrade_plugin_savepoint(true, 2021011900, 'theme', 'imt');
     }
     if ($oldversion < 2021011914) {
-        theme_imtpn\setup::install_update();
-        upgrade_plugin_savepoint(true, 2021011914, 'theme', 'imtpn');
+        theme_imt\setup::install_update();
+        upgrade_plugin_savepoint(true, 2021011914, 'theme', 'imt');
     }
     if ($oldversion < 2021011915) {
-        theme_imtpn\setup::install_update();
-        upgrade_plugin_savepoint(true, 2021011915, 'theme', 'imtpn');
+        theme_imt\setup::install_update();
+        upgrade_plugin_savepoint(true, 2021011915, 'theme', 'imt');
     }
     return true;
 }

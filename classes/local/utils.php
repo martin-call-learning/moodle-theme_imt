@@ -17,8 +17,8 @@
 /**
  * Utils
  *
- * @package   theme_imtpn
- * @copyright 2020 - CALL Learning - Laurent David <laurent@call-learning>
+ * @package   theme_imt
+ * @copyright 2023 - CALL Learning - Laurent David <laurent@call-learning>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -34,8 +34,8 @@ use function theme_imt\local\count;
 /**
  * Utils
  *
- * @package   theme_imtpn
- * @copyright 2020 - CALL Learning - Laurent David <laurent@call-learning>
+ * @package   theme_imt
+ * @copyright 2023 - CALL Learning - Laurent David <laurent@call-learning>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class utils {

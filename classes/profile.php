@@ -41,7 +41,7 @@ use html_writer;
 use moodle_url;
 use pix_icon;
 use stdClass;
-use theme_imtpn\local\utils;
+use theme_imt\local\utils;
 use theme_imt\output\courses_thumbnails;
 use const theme_imt\SITEID;
 
@@ -180,7 +180,7 @@ class profile {
         $courseorsystemcontext = !empty($course) ? context_course::instance($course->id) : $systemcontext;
         $courseid = !empty($course) ? $course->id : SITEID;
 
-        $contactcategory = new category('contact', get_string('userinfos', 'theme_imtpn'), '',
+        $contactcategory = new category('contact', get_string('userinfos', 'theme_imt'), '',
             ' profile-contact');
         // No after property specified intentionally. It is a hack to make administration block appear towards the end
         // Refer MDL-49928.
@@ -508,15 +508,15 @@ class profile {
     protected static function check_display($component, $module = null) {
         static $simplified = null, $excludedcomponents = null, $excludedmodules = null;
         if (is_null($simplified)) {
-            $simplified = get_config('theme_imtpn', 'simplifiedprofilepage');
+            $simplified = get_config('theme_imt', 'simplifiedprofilepage');
         }
         if (is_null($excludedcomponents)) {
-            $excludedcomponentscfg = get_config('theme_imtpn', 'profilecomponentsexclusion');
+            $excludedcomponentscfg = get_config('theme_imt', 'profilecomponentsexclusion');
             $excludedcomponents = array_map('trim',
                 explode(',', $excludedcomponentscfg ? $excludedcomponentscfg : ''));
         }
         if (is_null($excludedmodules)) {
-            $excludedmodulescfg = get_config('theme_imtpn', 'profilemodulessexclusion');
+            $excludedmodulescfg = get_config('theme_imt', 'profilemodulessexclusion');
             $excludedmodules = array_map('trim',
                 explode(',', $excludedmodulescfg ? $excludedmodulescfg : ''));
         }

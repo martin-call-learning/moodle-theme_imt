@@ -86,11 +86,11 @@ class settings extends \theme_clboost\local\settings {
     protected static function additional_settings(admin_settingpage &$settings, $currentthemename = 'clboost') {
         // Advanced settings.
         $page = new admin_settingpage('footer',
-            static::get_string('footer', 'theme_imtpn'));
+            static::get_string('footer', 'theme_imt'));
 
-        $setting = new admin_setting_confightmleditor('theme_imtpn/footercontent',
-            static::get_string('footercontent', 'theme_imtpn'),
-            static::get_string('footercontent_desc', 'theme_imtpn'),
+        $setting = new admin_setting_confightmleditor('theme_imt/footercontent',
+            static::get_string('footercontent', 'theme_imt'),
+            static::get_string('footercontent_desc', 'theme_imt'),
             self::DEFAULT_FOOTER_CONTENT,
             PARAM_RAW);
         $page->add($setting);
@@ -99,26 +99,26 @@ class settings extends \theme_clboost\local\settings {
 
         // Mur pedago.
         $page = new admin_settingpage('murpedago',
-            static::get_string('murpedagogique', 'theme_imtpn'));
+            static::get_string('murpedagogique', 'theme_imt'));
 
-        $setting = new admin_setting_configtext('theme_imtpn/murpedagoidnumber',
-            static::get_string('murpedagoidnumber', 'theme_imtpn'),
-            static::get_string('murpedagoidnumber_desc', 'theme_imtpn'),
+        $setting = new admin_setting_configtext('theme_imt/murpedagoidnumber',
+            static::get_string('murpedagoidnumber', 'theme_imt'),
+            static::get_string('murpedagoidnumber_desc', 'theme_imt'),
             'MUR_PEDAGOGIQUE',
             PARAM_ALPHANUMEXT);
         $setting->set_updatedcallback('reset_mur_pedago_blocks');
         $page->add($setting);
 
-        $setting = new admin_setting_configcheckbox('theme_imtpn/murpedagoenabled',
-            static::get_string('murpedagoenabled', 'theme_imtpn'),
-            static::get_string('murpedagoenabled_desc', 'theme_imtpn'),
+        $setting = new admin_setting_configcheckbox('theme_imt/murpedagoenabled',
+            static::get_string('murpedagoenabled', 'theme_imt'),
+            static::get_string('murpedagoenabled_desc', 'theme_imt'),
             false);
         $setting->set_updatedcallback('reset_mur_pedago_blocks');
         $page->add($setting);
 
-        $setting = new admin_setting_confightmleditor('theme_imtpn/murpedagogrouprules',
-            static::get_string('murpedagogrouprules', 'theme_imtpn'),
-            static::get_string('murpedagogrouprules_desc', 'theme_imtpn'),
+        $setting = new admin_setting_confightmleditor('theme_imt/murpedagogrouprules',
+            static::get_string('murpedagogrouprules', 'theme_imt'),
+            static::get_string('murpedagogrouprules_desc', 'theme_imt'),
             self::DEFAULT_RULES,
             PARAM_RAW);
         $page->add($setting);
@@ -127,23 +127,23 @@ class settings extends \theme_clboost\local\settings {
 
         // Profile page.
         $page = new admin_settingpage('profilepage',
-            static::get_string('profilepage', 'theme_imtpn'));
+            static::get_string('profilepage', 'theme_imt'));
 
-        $setting = new admin_setting_configcheckbox('theme_imtpn/simplifiedprofilepage',
-            static::get_string('simplifiedprofilepage', 'theme_imtpn'),
-            static::get_string('simplifiedprofilepage_desc', 'theme_imtpn'),
+        $setting = new admin_setting_configcheckbox('theme_imt/simplifiedprofilepage',
+            static::get_string('simplifiedprofilepage', 'theme_imt'),
+            static::get_string('simplifiedprofilepage_desc', 'theme_imt'),
             true);
         $page->add($setting);
 
-        $setting = new admin_setting_configtext('theme_imtpn/profilecomponentsexclusion',
-            static::get_string('profilecomponentsexclusion', 'theme_imtpn'),
-            static::get_string('profilecomponentsexclusion_desc', 'theme_imtpn'),
+        $setting = new admin_setting_configtext('theme_imt/profilecomponentsexclusion',
+            static::get_string('profilecomponentsexclusion', 'theme_imt'),
+            static::get_string('profilecomponentsexclusion_desc', 'theme_imt'),
             'report,tool,gradereport,loginactivity,badges,miscellaneous,notes');
         $page->add($setting);
 
-        $setting = new admin_setting_configtext('theme_imtpn/profilemodulessexclusion',
-            static::get_string('profilemodulesexclusion', 'theme_imtpn'),
-            static::get_string('profilemodulesexclusion_desc', 'theme_imtpn'),
+        $setting = new admin_setting_configtext('theme_imt/profilemodulessexclusion',
+            static::get_string('profilemodulesexclusion', 'theme_imt'),
+            static::get_string('profilemodulesexclusion_desc', 'theme_imt'),
             'tool_mobile,mod_forum');
         $page->add($setting);
 
@@ -151,24 +151,24 @@ class settings extends \theme_clboost\local\settings {
 
         // Advanced settings.
         $page = new admin_settingpage('othersettings',
-            static::get_string('othersettings', 'theme_imtpn'));
+            static::get_string('othersettings', 'theme_imt'));
 
-        $setting = new admin_setting_configstoredfile('theme_imtpn/profilebgimage',
-            static::get_string('profilebgimage', 'theme_imtpn'),
-            static::get_string('profilebgimage_desc', 'theme_imtpn'),
+        $setting = new admin_setting_configstoredfile('theme_imt/profilebgimage',
+            static::get_string('profilebgimage', 'theme_imt'),
+            static::get_string('profilebgimage_desc', 'theme_imt'),
             utils::PROFILE_IMAGE_FILE_AREA);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
-        if ($currentthemename === 'imtpn') {
-            $setting = new admin_setting_configcheckbox('theme_imtpn/customscripts',
-                static::get_string('customscripts', 'theme_imtpn'),
-                static::get_string('customscripts_desc', 'theme_imtpn'),
+        if ($currentthemename === 'imt') {
+            $setting = new admin_setting_configcheckbox('theme_imt/customscripts',
+                static::get_string('customscripts', 'theme_imt'),
+                static::get_string('customscripts_desc', 'theme_imt'),
                 false);
             $setting->set_updatedcallback('setup_customscripts');
             $page->add($setting);
-            $setting = new \admin_setting_configtextarea('theme_imtpn/emailvstheme',
-                static::get_string('emailvstheme', 'theme_imtpn'),
-                static::get_string('emailvstheme_desc', 'theme_imtpn'),
+            $setting = new \admin_setting_configtextarea('theme_imt/emailvstheme',
+                static::get_string('emailvstheme', 'theme_imt'),
+                static::get_string('emailvstheme_desc', 'theme_imt'),
                 json_encode(setup::DEFAULT_THEME_MATCH, JSON_PRETTY_PRINT));
             $page->add($setting);
         }

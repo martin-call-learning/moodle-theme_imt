@@ -3,14 +3,14 @@
     .card {
         border: 0;
         background: transparent;
-        @extend .imtpn-container;
+        @extend .imt-container;
 
         .card-body {
             padding: 0 !important;
         }
     }
 
-    .block-what-is-imtpn {
+    .block-what-is-imt {
 
         .card-title {
             @extend .title-underlined;

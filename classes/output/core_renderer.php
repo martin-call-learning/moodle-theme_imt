@@ -61,7 +61,7 @@ class core_renderer extends \theme_clboost\output\core_renderer {
      */
     public function get_template_additional_information() {
         $additionalinfo = parent::get_template_additional_information();
-        $additionalinfo->footercontent = get_config('theme_imtpn', 'footercontent');
+        $additionalinfo->footercontent = get_config('theme_imt', 'footercontent');
         return $additionalinfo;
     }
 
@@ -101,7 +101,7 @@ class core_renderer extends \theme_clboost\output\core_renderer {
     public function get_current_theme_base_url() {
         // TODO: support theme dir setting.
         if (empty($this->page->theme->name)) {
-            return "/theme/imtpn";
+            return "/theme/imt";
         }
         return "/theme/{$this->page->theme->name}";
     }
@@ -191,7 +191,7 @@ class core_renderer extends \theme_clboost\output\core_renderer {
             $list[] = html_writer::div(
                 $this->render_from_template('core/userfeedback_footer_link',
                     ['url' => core_userfeedback::make_link()->out(false)])
-            ); // IMTPN: output as a list.
+            ); // imt: output as a list.
         }
 
         // This function is normally called from a layout.php file in {@see core_renderer::header()}
@@ -201,7 +201,7 @@ class core_renderer extends \theme_clboost\output\core_renderer {
         if ($this->page->devicetypeinuse == 'legacy') {
             // The legacy theme is in use print the notification.
             $list[] = html_writer::tag('div', get_string('legacythemeinuse'),
-                array('class' => 'legacythemeinuse')); // IMTPN: output as a list.
+                array('class' => 'legacythemeinuse')); // imt: output as a list.
         }
 
         // Get links to switch device types (only shown for users not on a default device).
@@ -209,7 +209,7 @@ class core_renderer extends \theme_clboost\output\core_renderer {
 
         if (!empty($CFG->debugpageinfo)) {
             $list[] = '<div class="performanceinfo pageinfo">' .
-                get_string('pageinfodebugsummary', 'core_admin', // IMTPN: output as a list.
+                get_string('pageinfodebugsummary', 'core_admin', // imt: output as a list.
                     $this->page->debug_summary()) . '</div>';
         }
         if (debugging(null, DEBUG_DEVELOPER) &&
@@ -220,13 +220,13 @@ class core_renderer extends \theme_clboost\output\core_renderer {
                 $title = get_string('profiledscriptview', 'admin');
                 $url = $CFG->wwwroot . '/admin/tool/profiling/index.php?script=' . urlencode($SCRIPT);
                 $link = '<a title="' . $title . '" href="' . $url . '">' . $txt . '</a>';
-                $list[] = '<div class="profilingfooter">' . $link . '</div>'; // IMTPN: output as a list.
+                $list[] = '<div class="profilingfooter">' . $link . '</div>'; // imt: output as a list.
             }
             $purgeurl = new moodle_url('/admin/purgecaches.php', array('confirm' => 1,
                 'sesskey' => sesskey(), 'returnurl' => $this->page->url->out_as_local_url(false)));
             $list[] = '<div class="purgecaches">' .
                 html_writer::link($purgeurl, get_string('purgecaches', 'admin')) . '</div>';
-            // IMTPN: output as a list.
+            // imt: output as a list.
         }
         if (!empty($CFG->debugvalidators)) {
             // NOTE: this is not a nice hack, $this->page->url is not always accurate and
@@ -238,9 +238,9 @@ class core_renderer extends \theme_clboost\output\core_renderer {
                 . urlencode(qualified_me()) . '">Section 508 Check</a></li>
               <li><a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=0&amp;warnp2n3e=1&amp;url1=' .
                 urlencode(qualified_me()) . '">WCAG 1 (2,3) Check</a></li>
-            </ul></div>'; // IMTPN: output as a list.
+            </ul></div>'; // imt: output as a list.
         }
-        return html_writer::alist($list) . $output; // IMTPN: output as a list.
+        return html_writer::alist($list) . $output; // imt: output as a list.
     }
 
     /**

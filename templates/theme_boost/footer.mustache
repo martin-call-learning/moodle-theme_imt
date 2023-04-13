@@ -23,18 +23,18 @@
         <div class="footer__triangle-2"></div>
         <div class="footer__triangle-3"></div>
     {{/additionalinfo.isloggedin}}
-    <div class="imtpn-container">
-    <div class="footer__text">
-        {{#additionalinfo.footercontent}} {{{ additionalinfo.footercontent }}} {{/additionalinfo.footercontent}}
-    </div>
-    <div class="footer__links">
-        {{{ output.standard_footer_html }}}
-        {{{ output.login_info }}}
-    </div>
-    <div class="footer__mention">
-        {{#str}}legal_mention, theme_imtpn{{/str}}
-    </div>
+    <div class="imt-container">
+        <div class="footer__text">
+            {{#additionalinfo.footercontent}} {{{ additionalinfo.footercontent }}} {{/additionalinfo.footercontent}}
+        </div>
+        <div class="footer__links">
+            {{{ output.standard_footer_html }}}
+            {{{ output.login_info }}}
+        </div>
+        <div class="footer__mention">
+            {{#str}}legal_mention, theme_imt{{/str}}
+        </div>
 
-    {{{ output.standard_end_of_body_html }}}
-  </div>
+        {{{ output.standard_end_of_body_html }}}
+    </div>
 </footer>

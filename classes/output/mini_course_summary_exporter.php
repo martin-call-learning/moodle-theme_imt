@@ -21,7 +21,7 @@
  * @copyright 2023 - CALL Learning - Martin CORNU-MANSUY <martin@call-learning>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-namespace theme_imtpn;
+namespace theme_imt;
 
 use core\external\exporter;
 use core_course\external\course_summary_exporter;

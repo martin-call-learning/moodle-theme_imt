@@ -17,8 +17,8 @@
 /**
  * Setup routine for theme
  *
- * @package   theme_imtpn
- * @copyright 2021 - CALL Learning - Laurent David <laurent@call-learning.fr>
+ * @package   theme_imt
+ * @copyright 2023 - CALL Learning - Laurent David <laurent@call-learning.fr>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -40,7 +40,7 @@ use theme_clboost\setup_utils;
  *
  * Utility setup class.
  *
- * @copyright   2020 Laurent David - CALL Learning <laurent@call-learning.fr>
+ * @copyright   2023 Laurent David - CALL Learning <laurent@call-learning.fr>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class setup {
@@ -63,15 +63,15 @@ class setup {
                     "text" => '<p>Que voulez-vous faire aujourd’hui ?</p>
 <div class="bienvenue d-flex flex-wrap flex-md-nowrap justify-content-between align-items-center my-4">
     <a>
-	    <img src="/theme/imt/pix/icons/book.svg" alt=""/>
+	    <img src="/theme/imt/pix/icons/book.svg" alt="Book"/>
         <span>Créer un nouveau cours</span>
     </a>
     <a>
-        <img src="/theme/imt/pix/icons/hand-leaf.svg" alt=""/>
+        <img src="/theme/imt/pix/icons/hand-leaf.svg" alt="Share"/>
         <span>Partager une ressource</span>
     </a>
     <a>
-        <img src="/theme/imt/pix/icons/bubbles.svg" alt=""/>
+        <img src="/theme/imt/pix/icons/bubbles.svg" alt="Talk"/>
         <span>Echanger avec mes collègues</span>
     </a>
 </div>'],
