@@ -23,3 +23,20 @@
  */
 $string['choosereadme'] = 'A theme based on Boost (Bootstrap 4.5) specifically designed for IMT';
 $string['pluginname'] = 'Theme IMT';
+$string['legal_mention'] = 'Illustration are or in part from Freepik et Unsplash, offering free to use content.';
+$string['footer'] = 'Footer';
+$string['footercontent'] = 'Footer content';
+$string['footercontent_desc'] = 'Footer content description';
+$string['profilepage'] = 'Profile page';
+$string['simplifiedprofilepage'] = 'Simplified profile page';
+$string['simplifiedprofilepage_desc'] = 'Simplified profile page description';
+$string['profilecomponentsexclusion'] = 'Profile component exclusion';
+$string['profilecomponentsexclusion_desc'] = 'Profile component exclusion description';
+$string['profilemodulesexclusion'] = 'Profile module exclusion';
+$string['profilemodulesexclusion_desc'] = 'Profile module exclusion description';
+$string['othersettings'] = 'Other settings';
+$string['profilebgimage'] = 'Profile background image';
+$string['profilebgimage_desc'] = 'Profile background image';
+$string['emailvstheme'] = 'Email domain vs Theme';
+$string['emailvstheme_desc'] = 'Match between domain name extension and user theme as JSON object
+ ( {\'mydomain.com\' : \'theme_imt_lille\'} )';
