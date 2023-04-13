@@ -97,32 +97,6 @@ class settings extends \theme_clboost\local\settings {
 
         $settings->add($page);
 
-        // Mur pedago.
-        $page = new admin_settingpage('murpedago',
-            static::get_string('murpedagogique', 'theme_imt'));
-
-        $setting = new admin_setting_configtext('theme_imt/murpedagoidnumber',
-            static::get_string('murpedagoidnumber', 'theme_imt'),
-            static::get_string('murpedagoidnumber_desc', 'theme_imt'),
-            'MUR_PEDAGOGIQUE',
-            PARAM_ALPHANUMEXT);
-        $setting->set_updatedcallback('reset_mur_pedago_blocks');
-        $page->add($setting);
-
-        $setting = new admin_setting_configcheckbox('theme_imt/murpedagoenabled',
-            static::get_string('murpedagoenabled', 'theme_imt'),
-            static::get_string('murpedagoenabled_desc', 'theme_imt'),
-            false);
-        $setting->set_updatedcallback('reset_mur_pedago_blocks');
-        $page->add($setting);
-
-        $setting = new admin_setting_confightmleditor('theme_imt/murpedagogrouprules',
-            static::get_string('murpedagogrouprules', 'theme_imt'),
-            static::get_string('murpedagogrouprules_desc', 'theme_imt'),
-            self::DEFAULT_RULES,
-            PARAM_RAW);
-        $page->add($setting);
-
         $settings->add($page);
 
         // Profile page.
@@ -160,12 +134,6 @@ class settings extends \theme_clboost\local\settings {
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
         if ($currentthemename === 'imt') {
-            $setting = new admin_setting_configcheckbox('theme_imt/customscripts',
-                static::get_string('customscripts', 'theme_imt'),
-                static::get_string('customscripts_desc', 'theme_imt'),
-                false);
-            $setting->set_updatedcallback('setup_customscripts');
-            $page->add($setting);
             $setting = new \admin_setting_configtextarea('theme_imt/emailvstheme',
                 static::get_string('emailvstheme', 'theme_imt'),
                 static::get_string('emailvstheme_desc', 'theme_imt'),
