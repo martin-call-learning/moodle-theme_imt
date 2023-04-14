@@ -98,6 +98,5 @@ function theme_imt_pluginfile($course, $cm, $context, $filearea, $args, $forcedo
  */
 function theme_imt_get_extra_scss($theme) {
     $extracss = theme_clboost_get_extra_scss($theme);
-    $additionalcss = profile::inject_scss($theme);
-    return $extracss . $additionalcss;
+    return $extracss;
 }

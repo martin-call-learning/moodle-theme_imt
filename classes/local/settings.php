@@ -127,10 +127,6 @@ class settings extends \theme_clboost\local\settings {
         $page = new admin_settingpage('othersettings',
             static::get_string('othersettings', 'theme_imt'));
 
-        $setting = new admin_setting_configstoredfile('theme_imt/profilebgimage',
-            static::get_string('profilebgimage', 'theme_imt'),
-            static::get_string('profilebgimage_desc', 'theme_imt'),
-            utils::PROFILE_IMAGE_FILE_AREA);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
         if ($currentthemename === 'imt') {

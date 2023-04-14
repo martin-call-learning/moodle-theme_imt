@@ -1,7 +1,6 @@
 // General layout settings
 @import 'pre';
 @import "../../clboost/scss/commons";
-@import 'abstracts/mixins';
 @import 'theme/base';
 @import 'theme/nav-drawer';
 @import 'components/components';
@@ -11,9 +10,7 @@
 @import 'components/texts';
 @import 'components/header';
 @import 'components/footer';
-@import 'components/syllabus';
 @import 'components/flags';
-@import 'components/myprofile';
 @import 'components/forum';
 @import 'components/sharing_cart';
 @import 'pages/homepage';
