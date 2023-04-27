@@ -176,7 +176,7 @@ class setup {
                 "backgroundcolor" => "",
                 "text" => '<p dir="ltr">Suivez les cours dispensés par vos professeurs par le biais de cette plateforme, ou explorez les cours disponibles en accès libre par thèmes afin de vous autoformer et compléter votre cursus<br></p>
 <p dir="ltr"><br></p>
-<p dir="ltr"><a href="/">Parcourir le catalogue de cours &gt;&gt;</a><br></p>',
+<p dir="ltr"><br></p>',
                 "layout" => "layout_four"
             ],
             'capabilities' => [],
